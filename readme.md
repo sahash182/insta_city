@@ -2,7 +2,7 @@ InstaCity is a web application which gives you a weather forecast where users ca
 
 In Terminal
 
-clone: $ git clone https://github.com/sahash182/weatherly
+clone: $ git clone https://github.com/sahash182/insta_city
 
 run server: $ http-server
 
