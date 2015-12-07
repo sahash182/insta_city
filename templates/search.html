@@ -1,0 +1,76 @@
+<div id="search-bar">
+  <h1><center>Enter City...</center></h1>
+  <form ng-submit="searchCity()" class="form-inline" id="search">
+    <div class="form-group">
+      <input type="text" ng-model="city" class="form-control" placeholder="Type City Name">
+    </div>
+    <input type="submit" value="Search" class="btn btn-danger">
+  </div>
+  <br>
+
+
+  <div class="row">
+
+    <!-- current day -->
+    <legend ng-show='weather'> Weather Forecast of {{ currentCity }} city. </legend>
+    <div class=" well col-xs-8 col-sm-4" ng-show="weather" id="weather">
+      <h3>Today</h3> 
+      <h3>{{ date }}</h3>
+      <h3><center>'{{ main }} '</center></h3>
+      <h3><center> {{ temp }} &deg; F</center></h3>
+
+      <p><center><img ng-src='.//images/{{ icon }}' alt="Weather Icon" align="middle" width="100px"></center></p>
+    </div>
+
+    <!-- First day -->
+    <div class="well col-xs-5 col-sm-2" ng-show="weather" id="next-one">
+     <h3>{{ dateOne }}</h3> 
+     <h3><center>'{{ mainOne }} '</center></h3>
+     <h3><center> {{ tempOne }} &deg; F</center></h3>
+
+     <p><center><img ng-src='.//images/{{ iconOne }}' alt="Weather Icon" align="middle" width="50px"></center></p>
+   </div>
+
+<!-- Add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-xs-block"></div>
+
+    <!-- Second day -->
+    <div class="well col-xs-5 col-sm-2" ng-show="weather" id="next-one">
+     <h3>{{ dateTwo }}</h3> 
+     <h3><center>'{{ mainTwo }}'</center></h3>
+     <h3><center> {{ tempTwo }} &deg; F</center></h3>
+
+     <p><center><img ng-src='.//images/{{ iconTwo }}' alt="Weather Icon" align="middle" width="50px"></center></p>
+   </div>
+ 
+
+  <!-- Third day -->
+    <div class="well col-xs-5 col-sm-2" ng-show="weather" id="next-one">
+     <h3>{{ dateThree }}</h3> 
+     <h3><center>'{{ mainThree }} '</center></h3>
+     <h3><center> {{ tempThree }} &deg; F</center></h3>
+
+     <p><center><img ng-src='.//images/{{ iconThree }}' alt="Weather Icon" align="middle" width="50px"></center></p>
+   </div>
+
+</div>
+
+
+
+<div class="row" ng-show="photos.length > 0">
+  <h4><center> Some Instagram posts on : {{ currentCity }} </center></h4>
+  <div class="col-md-3 col-sm-4" ng-repeat="photo in photos">
+    <div class="thumbnail">
+      <img ng-src="{{photo.images.standard_resolution.url}}">
+      <br>
+      <p>
+        @{{photo.user.username}}
+        <span class="pull-right">
+          <span class="glyphicon glyphicon-heart"></span>
+          <ng-pluralize count="{{photo.likes.count}}" when="{'one': '1 like', 'other': '{} likes'}"></ng-pluralize>
+        </span>
+      </p>
+      <!-- <p><a href="javascript:void(0)" ng-click="savePhoto(photo)">Save</a></p> -->
+    </div>
+  </div>
+</div>
